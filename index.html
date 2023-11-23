@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>CompassionConnect</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    /* Custom Styles */
+    body {
+      background-color: #f8f9fa; /* Set a light background color */
+    }
+
+    /* Center the form vertically and align it to the left */
+    .donation-form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start; /* Align to the left */
+      height: 100vh;
+    }
+
+    /* Add some padding to the form */
+    .donation-form form {
+      max-width: 400px;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #formSlogan {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 20px; /* You can adjust this value */
+      margin-left: 0; /* Add this line to reset the left margin */
+    }
+
+    /* Hide the "Enter Amount" field by default */
+    #otherAmountContainer {
+      display: none;
+      transition: all 0.3s ease-in-out; /* Add a smooth transition effect */
+    }
+
+    /* Add a class to show the "Enter Amount" field */
+    .show-other-amount #otherAmountContainer {
+      display: block;
+      margin-top: 10px; /* Adjust the spacing as needed */
+    }
+  </style>
+</head>
+<body data-spy="scroll" data-target="#navbar" data-offset="50">
+
+  <!-- ... (Navbar and other sections remain the same) ... -->
+
+  <!-- Home Section -->
+  <section id="home" class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6">
+        <img src="path/to/your/image.jpg" class="img-fluid" alt="Charity Image">
+      </div>
+      <div class="col-lg-6 donation-form ml-auto">
+        <h2 id="formSlogan">Joining Hearts, Changing Lives</h2>
+        <form>
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" placeholder="Your Name">
+          </div>
+          <div class="form-group">
+            <label for="amount">Select Amount:</label><br>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-outline-primary">
+                <input type="radio" name="amount" value="10"> $10
+              </label>
+              <label class="btn btn-outline-primary">
+                <input type="radio" name="amount" value="25"> $25
+              </label>
+              <label class="btn btn-outline-primary">
+                <input type="radio" name="amount" value="50"> $50
+              </label>
+              <label class="btn btn-outline-primary" id="otherAmountBtn">
+                <input type="radio" name="amount" value="0"> Other
+              </label>
+            </div>
+            <div id="otherAmountContainer">
+              <input type="text" class="form-control mt-2" id="otherAmount" placeholder="Enter Amount">
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary">Donate</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- About Section -->
+  <section id="about" class="container mt-5">
+    <h2>About CompassionConnect</h2>
+    <p>Your about content goes here...</p>
+    <!-- Add more sections as needed -->
+  </section>
+
+  <!-- Include jQuery and Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var otherAmountBtn = document.getElementById('otherAmountBtn');
+      var otherAmountContainer = document.getElementById('otherAmountContainer');
+
+      otherAmountBtn.addEventListener('change', function () {
+        // Toggle the 'show-other-amount' class based on the selection
+        if (otherAmountBtn.checked) {
+          otherAmountContainer.classList.add('show-other-amount');
+        } else {
+          otherAmountContainer.classList.remove('show-other-amount');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
